@@ -14,5 +14,8 @@ steps:
 - name: 'gcr.io/google.com/cloudsdktool/google-cloud-cli'
   args: ['gsutil', 'cp', 'my.html', 'gs://forci1234/']
 
+options:
+  logs_bucket: 'gs://forci1234'  # Your existing bucket for logs
+
 images:
 - 'gcr.io/cicd437310/my-app'
