@@ -1,21 +1,10 @@
 steps:
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
-
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['run', 'build']
-
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'gcr.io/cicd437310/my-app', '.']
-
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['run', 'deploy', 'my-app', '--image', 'gcr.io/cicd437310/my-app', '--platform', 'managed', '--region', 'us-central1']
-
 - name: 'gcr.io/google.com/cloudsdktool/google-cloud-cli'
-  args: ['gsutil', 'cp', 'my.html', 'gs://forci1234/']
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - 'gsutil cp my.html gs://forci1234/'
 
-options:
-  default_logs_bucket_behavior: 'REGIONAL_USER_OWNED_BUCKET'
-
+# Specify the images to be pushed if any
 images:
 - 'gcr.io/cicd437310/my-app'
