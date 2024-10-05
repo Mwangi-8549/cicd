@@ -5,6 +5,10 @@ steps:
   - '-c'
   - 'gsutil cp my.html gs://forci1234/'
 
+options:
+  logging: CLOUD_LOGGING_ONLY  # Specify logging behavior
+
 # Specify the images to be pushed if any
 images:
 - 'gcr.io/cicd437310/my-app'
+
