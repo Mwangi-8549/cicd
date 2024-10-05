@@ -15,7 +15,7 @@ steps:
   args: ['gsutil', 'cp', 'my.html', 'gs://forci1234/']
 
 options:
-  logs_bucket: 'gs://forci1234'  # Your existing bucket for logs
+  default_logs_bucket_behavior: 'REGIONAL_USER_OWNED_BUCKET'
 
 images:
 - 'gcr.io/cicd437310/my-app'
